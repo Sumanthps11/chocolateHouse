@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Flavor Suggestions</title>
+</head>
+<body>
+    <h1>Suggests for the Flavor</h1>
+    <form method="POST">
+        <label for="flavor_id">Select Flavor:</label>
+        <select id="flavor_id" name="flavor_id">
+            {% for flavor in flavors %}
+            <option value="{{ flavor.id }}">{{ flavor.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="suggestion">Your Suggestion:</label>
+        <textarea id="suggestion" name="suggestion" required></textarea>
+        <br>
+        <button type="submit">Submit Suggestion</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

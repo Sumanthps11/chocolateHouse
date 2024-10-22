@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Ingredient</title>
+</head>
+<body>
+    <h1>Add an Ingredient</h1>
+    <form method="POST">
+        <label for="flavor_id">Select Flavor:</label>
+        <select id="flavor_id" name="flavor_id">
+            {% for flavor in flavors %}
+            <option value="{{ flavor.id }}">{{ flavor.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="name">Ingredient Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <button type="submit">Add Ingredient</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

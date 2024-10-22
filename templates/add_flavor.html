@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flavor</title>
+</head>
+<body>
+    <h1>Add a New Flavor</h1>
+    <form method="POST">
+        <label for="name">Flavor Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="seasonal">Seasonal Type:</label>
+        <input type="text" id="seasonal" name="seasonal" required>
+        <br>
+        <button type="submit">Add Flavor</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
