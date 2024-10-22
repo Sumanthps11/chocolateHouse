@@ -7,7 +7,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 
-# Initialize Database
+# Initialize Database   
 with app.app_context():
     db.create_all()
 
@@ -55,6 +55,11 @@ def suggestion():
 def get_ingredients():
     ingredients = Ingredient.query.all()
     return render_template('ingredient.html', ingredients = ingredients)
+
+@app.route('/suggestions')
+def get_suggestions():
+    suggestions = CustomerSuggestion.query.all()
+    return render_template('allsuggestions.html', suggestions=suggestions)
 
 if __name__ == '__main__':
     app.run(debug=True)

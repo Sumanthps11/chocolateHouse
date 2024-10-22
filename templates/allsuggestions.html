@@ -6,17 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chocolate House</title>
 </head>
-<body>
-    <h1>Welcome to the Chocolate House!</h1>
-    <h2>Flavors</h2>
-    <ul>
-        {% for flavor in flavors %}
-        <li>{{ flavor.name }} - {{ flavor.seasonal }}</li>
+<h1>Customer Suggestions</h1>
+    <table>
+        <tr>
+            <th>Flavor</th>
+            <th>Suggestion</th>
+        </tr>
+        {% for suggestion in suggestions %}
+        <tr>
+            <td>{{ suggestion.flavor.name if suggestion.flavor else 'N/A' }}</td>
+            <td>{{ suggestion.suggestion }}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
     <a href="{{ url_for('add_flavor') }}">Add Flavor</a> | 
     <a href="{{ url_for('add_ingredient') }}">Add Ingredient</a> | 
     <a href="{{ url_for('suggestion') }}">Suggestions for the Flavors</a>
-    <a href="{{ url_for('get_suggestions') }}"> All Suggestions </a>
 </body>
 </html>

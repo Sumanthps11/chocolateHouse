@@ -8,12 +8,18 @@
 </head>
 <body>
     <h1>Welcome to the Chocolate House!</h1>
-    <h2>Ingredients</h2>
-    <ul>
+    <table>
+        <tr>
+            <th>Ingredient Name</th>
+            <th>Flavor</th>
+        </tr>
         {% for ingredient in ingredients %}
-        <li>{{ ingredient.name }}</li>
+        <tr>
+            <td>{{ ingredient.flavor.name if ingredient.flavor else 'N/A' }}</td>
+            <td>{{ ingredient.name }}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
     <a href="{{ url_for('add_flavor') }}">Add Flavor</a> | 
     <a href="{{ url_for('add_ingredient') }}">Add Ingredient</a> | 
     <a href="{{ url_for('suggestion') }}">Suggestions for the Flavors</a>
